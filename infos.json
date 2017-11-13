@@ -1,0 +1,10 @@
+{
+  "displayName" : "VMWare Vcenter inventory",
+  "author" : ["Gilles DUBOIS"],
+  "contributor" : [],
+  "supportedAgent" : ["Unix"],
+  "description" : {
+    "fr" : "Permet d'interroger l'API vmware vcenter et de renvoyer les informations lors de l'inventaire",
+    "en" : "Call vmware vcenter API and send retrivied informations in inventory"
+  }
+}
