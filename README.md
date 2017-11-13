@@ -26,8 +26,8 @@ Link : https://code.vmware.com/apis/62/vcenter-management
 2. A user with read rights on the API and VCenter infrastructure
 
 *The following OCS configuration need to be installed :*
-2. Unix agent 2.3 and newer
-3. OCS Inventory 2.3.X recommended
+1. Unix agent 2.3 and newer
+2. OCS Inventory 2.3.X recommended
 
 *The following dependencies need to be installed on agent :*
 1. LWP::UserAgent
