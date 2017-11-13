@@ -26,7 +26,7 @@ function plugin_version_vmware()
 return array('name' => 'VMWare inventory',
 'version' => '1.0',
 'author'=> 'Gilles Dubois',
-'license' => 'GPLv2',
+'license' => 'GPLv3',
 'verMinOcs' => '2.3');
 }
 
