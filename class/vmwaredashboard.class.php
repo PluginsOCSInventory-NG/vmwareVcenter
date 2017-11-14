@@ -21,6 +21,9 @@
  * MA 02110-1301, USA.
  */
 
+/**
+ * This class will show a little summary of the inventory VCenter infrastructure
+ */
  class VmwareDashboard {
 
  }
