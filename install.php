@@ -1,22 +1,22 @@
 <?php
 /*
- * Copyright 2005-2016 OCSInventory-NG/OCSInventory-ocsreports contributors.
+ * Copyright 2005-2017 PluginsOCSInventory-NG/vmware-vcenter contributors.
  * See the Contributors file for more details about them.
  *
- * This file is part of OCSInventory-NG/OCSInventory-ocsreports.
+ * This file is part of PluginsOCSInventory-NG/vmware-vcenter.
  *
- * OCSInventory-NG/OCSInventory-ocsreports is free software: you can redistribute
+ * PluginsOCSInventory-NG/vmware-vcenter is free software: you can redistribute
  * it and/or modify it under the terms of the GNU General Public License as
- * published by the Free Software Foundation, either version 2 of the License,
+ * published by the Free Software Foundation, either version 3 of the License,
  * or (at your option) any later version.
  *
- * OCSInventory-NG/OCSInventory-ocsreports is distributed in the hope that it
+ * PluginsOCSInventory-NG/vmware-vcenter is distributed in the hope that it
  * will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty
  * of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with OCSInventory-NG/OCSInventory-ocsreports. if not, write to the
+ * along with PluginsOCSInventory-NG/vmware-vcenter. if not, write to the
  * Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
  * MA 02110-1301, USA.
  */
