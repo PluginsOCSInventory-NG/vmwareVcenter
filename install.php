@@ -35,6 +35,9 @@ function plugin_init_vmware()
 
 $object = new plugins;
 
+// Add menu
+$object -> add_menu ("vmware","20000","vmware","VMWare Vcenter Management","plugins");
+
 // VMWARE Vcenter datacenter
 $object -> sql_query("CREATE TABLE IF NOT EXISTS `VMWARE_DATACENTER` (
                       `ID` INT(11) NOT NULL AUTO_INCREMENT,
@@ -221,6 +224,8 @@ function plugin_delete_vmware()
 {
 
 $object = new plugins;
+// Del menu
+$object -> del_menu ("vmware","20000","VMWare Vcenter Management","plugins");
 // VMWARE Vcenter datacenter
 $object -> sql_query("DROP TABLE `VMWARE_DATACENTER`;");
 // VMWARE Vcenter datastore
