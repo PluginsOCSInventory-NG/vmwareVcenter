@@ -21,8 +21,43 @@
  * MA 02110-1301, USA.
  */
 
- require("class/vmwaredashboard.class.php");
+ if (AJAX) {
+     parse_str($protectedPost['ocs']['0'], $params);
+     $protectedPost += $params;
+     ob_start();
+ }
+
  require("class/vmwaredetails.class.php");
 
+// Process Get
+if(isset($_GET['list'])){
+  $activeMenu = $_GET['list'];
+}else{
+  $activeMenu = "VMWARE_DATACENTER";
+}
+
+// Generate left menu
 $details = new VmwareDetails();
-$details->processTableList();
+echo "<div class='col-md-2'>";
+$details->showVcenterLeftMenu($activeMenu);
+echo "</div>";
+
+
+$tabOptions = $protectedPost;
+// Generate Right Tab with data
+$tableDetails = $details->processTable($activeMenu);
+
+$tabOptions['table_name'] = $tableDetails['tabOptions']['table_name'];
+$tabOptions['form_name'] = $tableDetails['tabOptions']['form_name'];
+
+echo "<div class='col-md-10'>";
+echo open_form($tabOptions['table_name'], '', '', 'form-horizontal');
+ajaxtab_entete_fixe($tableDetails['listFields'], $tableDetails['defaultFields'], $tabOptions,  $tableDetails['listColCantDel']);
+echo close_form();
+echo "</div>";
+
+if (AJAX) {
+  ob_end_clean();
+  tab_req($tableDetails['listFields'], $tableDetails['defaultFields'], $tableDetails['listColCantDel'], $details->finalQuery, $tabOptions);
+  ob_start();
+}
