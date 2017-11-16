@@ -17,7 +17,7 @@
 This plugin is made to retrieve all VCenter informations using the new REST api from VMWare VCenter.
 Link : https://code.vmware.com/apis/62/vcenter-management
 
-*NOTE : This plugin still not have any visual representation of inventoried data (WIP)*
+*NOTE : This plugin is missing some VCenter VM inventoried data (WIP)*
 
 ## Prerequisite
 
