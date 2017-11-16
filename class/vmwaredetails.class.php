@@ -28,38 +28,52 @@ class VmwareDetails {
 
   private $tableName = null;
   private $fieldArray = null;
-  private $finalQuery = null;
 
   private $queryRepo = array(
     "SHOW_COLUMNS" => "SHOW COLUMNS FROM %s",
     "SELECT_FROM_TABLE" => "SELECT %s FROM %s"
   );
 
-  public static $tableList = array(
-    "VMWARE_DATACENTER",
-    "VMWARE_DATASTORE",
-    "VMWARE_CLUSTER",
-    "VMWARE_FOLDER",
-    "VMWARE_VM",
-    "VMWARE_RESOURCEPOOL",
-    "VMWARE_VM_DISK",
-    "VMWARE_VM_HARDWARE",
-    "VMWARE_VM_BOOT",
-    "VMWARE_NETWORK",
+  public $finalQuery = null;
+
+  public $viewList = array(
+    "Datacenter list" => "VMWARE_DATACENTER",
+    "Datastore list" => "VMWARE_DATASTORE",
+    "Cluster List" => "VMWARE_CLUSTER",
+    "Folder list" => "VMWARE_FOLDER",
+    "Resourcepool list" => "VMWARE_RESOURCEPOOL",
+    "Network list" => "VMWARE_NETWORK",
+    "Vm list" => "VMWARE_VM",
+  );
+
+  public $vmViewList = array(
+    "Vm disk" => "VMWARE_VM_DISK",
+    "Vm hardware" => "VMWARE_VM_HARDWARE",
+    "Vm boot" => "VMWARE_VM_BOOT",
   );
 
   public function setTableName($tableName){
-    $this->tableName = $tableName
+    $this->tableName = $tableName;
+  }
+
+  public function getTableName(){
+    return $this->tableName;
   }
 
   private function getTableFieldList(){
      $result = mysql2_query_secure($this->queryRepo['SHOW_COLUMNS'], $_SESSION['OCS']["readServer"], $this->tableName);
 
-     while($row = $result->fetch_assoc()){
-       if($row['Field'] != "HARDWARE_ID"){
-          $this->fieldArray[] = $row['Field'];
-       }
-     }
+    if($result != false){
+      while($row = $result->fetch_assoc()){
+        if($row['Field'] != "HARDWARE_ID"){
+           $this->fieldArray[] = $row['Field'];
+        }
+      }
+      return true;
+    }else{
+      return false;
+    }
+
   }
 
   private function generateQueryFromFieldList(){
@@ -69,47 +83,54 @@ class VmwareDetails {
 
   private function generateDatatable(){
 
-    if (AJAX) {
-        parse_str($protectedPost['ocs']['0'], $params);
-        $protectedPost += $params;
-        ob_start();
-    }
-
     $listFields = array();
-    foreach ($this->fieldList as $field) {
+    foreach ($this->fieldArray as $field) {
       $listFields[$field] = $field;
     }
-    $listFields = $defaultFields;
+    $defaultFields = $listFields;
 
     $listColCantDel = array('ID' => 'ID');
 
     $tabOptions['form_name'] = $this->tableName;
     $tabOptions['table_name'] = $this->tableName;
 
-    echo open_form($this->tableName, '', '', 'form-horizontal');
+    $tableDetails = array();
 
-    ajaxtab_entete_fixe($listFields, $defaultFields, $tabOptions, $listColCantDel);
+    $tableDetails["listFields"] = $listFields;
+    $tableDetails["defaultFields"] = $defaultFields;
+    $tableDetails["tabOptions"] = $tabOptions;
+    $tableDetails["listColCantDel"] = $listColCantDel;
 
-    echo close_form();
+    return $tableDetails;
 
-    if (AJAX) {
-      ob_end_clean();
-      tab_req($listFields, $defaultFields, $listColCantDel, $this->finalQuery, $tabOptions);
-      ob_start();
-    }
   }
 
   public function processTable($tabName){
+    if(!in_array($tabName, $this->viewList)){
+      return false;
+    }
+
     $this->setTableName($tabName);
-    $this->getTableFieldList();
-    $this->generateQueryFromFieldList();
-    $this->generateDatatable();
+    if($this->getTableFieldList()){
+      $this->generateQueryFromFieldList();
+      return($this->generateDatatable());
+    }
+
   }
 
-  public function processTableList(){
-    foreach ($this->tableList as $tabName) {
-      $this->processTable($tabName)
+  public function showVcenterLeftMenu($activeMenu){
+    $menuArray = $this->viewList;
+
+    echo '<ul class="nav nav-pills nav-stacked navbar-left">';
+    foreach ($menuArray as $key=>$value){
+
+        echo "<li ";
+        if ($activeMenu == $value) {
+            echo "class='active'";
+        }
+        echo " ><a href='?function=vmware&list=".$value."'>".$key."</a></li>";
     }
+    echo '</ul>';
   }
 
 }
