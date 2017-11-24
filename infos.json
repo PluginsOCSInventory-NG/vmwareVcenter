@@ -4,7 +4,7 @@
   "contributor" : [],
   "supportedAgent" : ["Unix"],
   "description" : {
-    "fr" : "Permet d'interroger l'API vmware vcenter et de renvoyer les informations lors de l'inventaire",
-    "en" : "Call vmware vcenter API and send retrivied informations in inventory"
+    "fr" : "Permet d'interroger l'API VMware vCenter et de renvoyer les informations lors de l'inventaire",
+    "en" : "Call VMware vCenter API and send retrivied informations in inventory"
   }
 }
