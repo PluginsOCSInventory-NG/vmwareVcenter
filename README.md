@@ -62,11 +62,11 @@ Line 18 :
 my @auth_hashes = (
     {
        URL  => "MY_FIRST_VMWARE_SERVER",
-       AUTH_DIG     => "My Auth digest (user + pass encoded in base 64)",
+       AUTH_DIG     => "My Auth digest (user:pass encoded in base 64)",
     },
     {
        URL => "MY_SECOND_VMWARE_SERVER",
-       AUTH_DIG    => "My Auth digest (user + pass encoded in base 64)",
+       AUTH_DIG    => "My Auth digest (user:pass encoded in base 64)",
     },
 );
 ```
@@ -78,7 +78,7 @@ If you have more than one server you need to add the following line below the la
 ```
     {
        URL => "MY_THIRD_VMWARE_SERVER",
-       AUTH_DIG    => "My Auth digest (user + pass encoded in base 64)",
+       AUTH_DIG    => "My Auth digest (user:pass encoded in base 64)",
     },
 ```
 
