@@ -3,6 +3,8 @@
   "author" : ["Gilles DUBOIS"],
   "contributor" : [],
   "supportedAgent" : ["Unix"],
+  "version" : "1.0",
+  "licence" : "GPLv2",
   "description" : {
     "fr" : "Permet d'interroger l'API VMware vCenter et de renvoyer les informations lors de l'inventaire",
     "en" : "Call VMware vCenter API and send retrivied informations in inventory"
