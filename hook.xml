@@ -6,7 +6,7 @@
     </hook>
     <hook type="submenu">
         <mainmenuidentifier>ms_extension</mainmenuidentifier>
-        <identifier>ms_vmware</identifier>
+        <identifier>ms_vmware_vcenter</identifier>
         <translation>30000</translation>
     </hook>
 </hookstore>
