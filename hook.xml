@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hookstore>
+    <hook type="lang">
+        <value>en_GB</value>
+        <value>fr_FR</value>
+    </hook>
+    <hook type="submenu">
+        <mainmenuidentifier>ms_extension</mainmenuidentifier>
+        <identifier>ms_vmware_vcenter</identifier>
+        <translation>30000</translation>
+    </hook>
+</hookstore>
