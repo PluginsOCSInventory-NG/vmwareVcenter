@@ -298,7 +298,7 @@ sub vmware_inventory_handler {
                             VM => [$current_vm],
                             ENTER_SETUP_MODE => [manage_json_pp_bool($vm_infos_details->{'value'}->{'boot'}->{'enter_setup_mode'})],
                             RETRY => [manage_json_pp_bool($vm_infos_details->{'value'}->{'boot'}->{'retry'})],
-                            EFI_LEGACY_BOOT => [$vm_infos_details->{'value'}->{'boot'}->{'efi_legacy_boot'}],
+                            EFI_LEGACY_BOOT => [manage_json_pp_bool($vm_infos_details->{'value'}->{'boot'}->{'efi_legacy_boot'})],
                             NETWORK_PROTOCOL => [$vm_infos_details->{'value'}->{'boot'}->{'network_protocol'}],
                             DELAY => [$vm_infos_details->{'value'}->{'boot'}->{'delay'}],
                             RETRY_DELAY => [$vm_infos_details->{'value'}->{'boot'}->{'retry_delay'}],
