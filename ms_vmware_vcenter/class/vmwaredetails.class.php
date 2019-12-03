@@ -128,7 +128,7 @@ class VmwareDetails {
         if ($activeMenu == $value) {
             echo "class='active'";
         }
-        echo " ><a href='?function=vmware&list=".$value."'>".$key."</a></li>";
+        echo " ><a href='?function=ms_vmware_vcenter&list=".$value."'>".$key."</a></li>";
     }
     echo '</ul>';
   }
