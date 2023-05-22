@@ -146,7 +146,7 @@ sub vmware_inventory_handler {
               HOST_FOLDER => [$datacenter_details->{'value'}->{'host_folder'}],
               NETWORK_FOLDER => [$datacenter_details->{'value'}->{'network_folder'}],
               VM_FOLDER => [$datacenter_details->{'value'}->{'vm_folder'}],
-              NAME => [$datacenter_details->{'value'}->{'name'}],
+              DATACENTER_NAME => [$datacenter_details->{'value'}->{'name'}],
               DATASTORE_FOLDER => [$datacenter_details->{'value'}->{'datastore_folder'}],
            };
 
@@ -167,7 +167,7 @@ sub vmware_inventory_handler {
              {
                 DATACENTER => [$current_datacenter],
                 IS_ACCESSIBLE => [manage_json_pp_bool($datastore_details->{'value'}->{'accessible'})],
-                NAME => [$datastore_details->{'value'}->{'name'}],
+                DATASTORE_NAME => [$datastore_details->{'value'}->{'name'}],
                 DATASTORE => [$_->{'datastore'}],
                 MULTIPLE_HOST_ACCESS => [manage_json_pp_bool($datastore_details->{'value'}->{'multiple_host_access'})],
                 CAPACITY => [$_->{'capacity'}],
@@ -186,7 +186,7 @@ sub vmware_inventory_handler {
              {
                 DATACENTER => [$current_datacenter],
                 NETWORK => [$_->{'network'}],
-                NAME => [$_->{'name'}],
+                NETWORK_NAME => [$_->{'name'}],
                 TYPE => [$_->{'type'}],
              };
            }
@@ -199,7 +199,7 @@ sub vmware_inventory_handler {
              {
                 DATACENTER => [$current_datacenter],
                 FOLDER => [$_->{'folder'}],
-                NAME => [$_->{'name'}],
+                FOLDER_NAME => [$_->{'name'}],
                 TYPE => [$_->{'type'}],
              };
            }
@@ -219,7 +219,7 @@ sub vmware_inventory_handler {
                     DATACENTER => [$current_datacenter],
                     DRS_ENABLED => [manage_json_pp_bool($_->{'drs_enabled'})],
                     HA_ENABLED => [manage_json_pp_bool($_->{'ha_enabled'})],
-                    NAME => [$_->{'name'}],
+                    CLUSTER_NAME => [$_->{'name'}],
                     CLUSTER => [$_->{'cluster'}],
                  };
 
@@ -251,7 +251,7 @@ sub vmware_inventory_handler {
                         CLUSTER => [$current_cluster],
                         HOST => [$current_host],
                         RESOURCE_POOL => [$_->{'resource_pool'}],
-                        NAME => [$_->{'name'}],
+                        RESOURCEPOOL_NAME => [$_->{'name'}],
                      };
 
                      # set current resource pool
@@ -287,7 +287,7 @@ sub vmware_inventory_handler {
                             VM => [$current_vm],
                             CPU_COUNT => [$_->{'cpu_count'}],
                             POWER_STATE => [$_->{'power_state'}],
-                            NAME => [$_->{'name'}],
+                            VM_NAME => [$_->{'name'}],
                             MEMORY_SIZE_MIB => [$_->{'memory_size_MiB'}],
                             GUEST_OS => [$vm_infos_details->{'value'}->{'guest_OS'}],
                          };

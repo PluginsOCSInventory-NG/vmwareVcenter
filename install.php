@@ -34,8 +34,8 @@ function extension_install_vmware_vcenter()
                           `HARDWARE_ID` INT(11) NOT NULL,
                           `HOST_FOLDER` VARCHAR(255) DEFAULT NULL,
                           `NETWORK_FOLDER` VARCHAR(255) DEFAULT NULL,
-    		                  `VM_FOLDER` VARCHAR(255) DEFAULT NULL,
-                          `NAME` VARCHAR(255) DEFAULT NULL,
+                          `VM_FOLDER` VARCHAR(255) DEFAULT NULL,
+                          `DATACENTER_NAME` VARCHAR(255) DEFAULT NULL,
                           `DATASTORE_FOLDER` VARCHAR(255) DEFAULT NULL,
                           PRIMARY KEY  (`ID`,`HARDWARE_ID`)
                           ) ENGINE=INNODB;");
@@ -46,7 +46,7 @@ function extension_install_vmware_vcenter()
                           `HARDWARE_ID` INT(11) NOT NULL,
                           `DATACENTER` VARCHAR(255) DEFAULT NULL,
                           `IS_ACCESSIBLE` VARCHAR(255) DEFAULT NULL,
-                          `NAME` VARCHAR(255) DEFAULT NULL,
+                          `DATASTORE_NAME` VARCHAR(255) DEFAULT NULL,
                           `DATASTORE` VARCHAR(255) DEFAULT NULL,
                           `MULTIPLE_HOST_ACCESS` VARCHAR(255) DEFAULT NULL,
                           `CAPACITY` VARCHAR(255) DEFAULT NULL,
@@ -62,7 +62,7 @@ function extension_install_vmware_vcenter()
                           `HARDWARE_ID` INT(11) NOT NULL,
                           `DATACENTER` VARCHAR(255) DEFAULT NULL,
                           `NETWORK` VARCHAR(255) DEFAULT NULL,
-                          `NAME` VARCHAR(255) DEFAULT NULL,
+                          `NETWORK_NAME` VARCHAR(255) DEFAULT NULL,
                           `TYPE` VARCHAR(255) DEFAULT NULL,
                           PRIMARY KEY  (`ID`,`HARDWARE_ID`)
                           ) ENGINE=INNODB;");
@@ -73,7 +73,7 @@ function extension_install_vmware_vcenter()
                           `HARDWARE_ID` INT(11) NOT NULL,
                           `DATACENTER` VARCHAR(255) DEFAULT NULL,
                           `FOLDER` VARCHAR(255) DEFAULT NULL,
-                          `NAME` VARCHAR(255) DEFAULT NULL,
+                          `FOLDER_NAME` VARCHAR(255) DEFAULT NULL,
                           `TYPE` VARCHAR(255) DEFAULT NULL,
                           PRIMARY KEY  (`ID`,`HARDWARE_ID`)
                           ) ENGINE=INNODB;");
@@ -85,7 +85,7 @@ function extension_install_vmware_vcenter()
                           `DATACENTER` VARCHAR(255) DEFAULT NULL,
                           `DRS_ENABLED` VARCHAR(255) DEFAULT NULL,
                           `HA_ENABLED` VARCHAR(255) DEFAULT NULL,
-                          `NAME` VARCHAR(255) DEFAULT NULL,
+                          `CLUSTER_NAME` VARCHAR(255) DEFAULT NULL,
                           `CLUSTER` VARCHAR(255) DEFAULT NULL,
                           PRIMARY KEY  (`ID`,`HARDWARE_ID`)
                           ) ENGINE=INNODB;");
@@ -99,7 +99,7 @@ function extension_install_vmware_vcenter()
                           `CLUSTER` VARCHAR(255) DEFAULT NULL,
                           `HOST` VARCHAR(255) DEFAULT NULL,
                           `RESOURCE_POOL` VARCHAR(255) DEFAULT NULL,
-                          `NAME` VARCHAR(255) DEFAULT NULL,
+                          `RESOURCEPOOL_NAME` VARCHAR(255) DEFAULT NULL,
                           PRIMARY KEY  (`ID`,`HARDWARE_ID`)
                           ) ENGINE=INNODB;");
 
@@ -114,7 +114,7 @@ function extension_install_vmware_vcenter()
                           `VM` VARCHAR(255) DEFAULT NULL,
                           `CPU_COUNT` VARCHAR(255) DEFAULT NULL,
                           `POWER_STATE` VARCHAR(255) DEFAULT NULL,
-                          `NAME` VARCHAR(255) DEFAULT NULL,
+                          `VM_NAME` VARCHAR(255) DEFAULT NULL,
                           `MEMORY_SIZE_MIB` VARCHAR(255) DEFAULT NULL,
                           `GUEST_OS` VARCHAR(255) DEFAULT NULL,
                           PRIMARY KEY  (`ID`,`HARDWARE_ID`)
